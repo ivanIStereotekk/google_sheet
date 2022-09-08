@@ -1,12 +1,1 @@
-{
-  "type": "service_account",
-  "project_id": "docuread-361900",
-  "private_key_id": "c70fb0ea83d4b97855dab43380a66f02850c09cc",
-  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC/3pjkn+a8WaFs\nvtz9z3Lb6r51GcwBYR8bSBxY1W7leKGIXKPEj3j8hlKKISPEkNWm4GaGkSFeN6bY\nE9xsZRDwyqpUMq6S4Ze9Vd0QNfWE41q9igoM199BMalXa499aCo5k43VnCGrmkXb\nLNoKrMjcdGHdL+1KB87r37CFKO2s3WiKtCG4KB6N4Jajk8uGii8oUq7KamMgsxdY\nFiZQQjzo1vT9A1ERrVeLpreO2kxf5JKOicicYgpefpMW5eyn9FdV5MNSAIKDQCCY\n3POAmWjaYUAqX5waPnM9L50IcuKibY3VKPH/OsLF3jUoNP+bpAvkD/X8Ferxg4AX\nvCKpZW0XAgMBAAECggEAR29I3VXrQhTc1O/6t0SVLuunHVINcjYGrtGaPDi6oRTY\njzxufLAuC1a3RFYySuzhns/NXCyMj9eIdspuNq0qMXxDDjYQaP80z3k4ZOCyGFfN\nYOQT+dQletBSjAmv0rEFh4o4NF986bb2azO3umG6Jtnt1bwSTI27rHYL8ofadZEU\nMSnn0T//r/SxZhx5FOB0QRMxL6W17f4Uf9dn0jEcviGARnOwF2XQ0zotmk86PnlV\nJrX7ONnSqi9kVFCucYryP2Y2++gKeDfSqXxMElOWm+dIqjYy7Cxf5sJc21NcEhu/\nrOm8wZ1xNytCYFXKca2GknTgKip+LeZWrtt7siGiAQKBgQDos0SltMn28/tCPC12\n/Xskx78CNKyxLDXvxxtCzSsaJA0oxrV+TkqxJjzc9oOrL6g2WmArTBLDY/Op/EJo\nXKl1HBRNFxaRX9nJmyWoTfT0ArvUOxrfV1gtCTgeiyziv2GfhQn3MnqGNWAipNmA\nXVgTFRd1rqn7SjelYf4Thii2hwKBgQDTFLpCfCa/hd+booMLVJVoXiYINia493fs\nqooAHfCJgyuDm/2uYyJwFGKgdyI07+eMYbTB698FIc1m94BnOr4redn2oKcQMPkc\nZCB9PLfV4DrG52P9s6F9OylQLopplj+dpSG7ZOamGwVxPMRNTtUIwZbGJVtlvsAj\nral36a+o8QKBgQC1JQBWYnMqG+nHOONHkrFvA1Ns2yZn0Xu3SW6uRNq9wbzAtlcI\nmNfKKXMNq5T6COJQVXAxpEmi8sb215m2dhOwR4iCLmvyBQSbzXu2FeGOpiYjY1Na\n8zp/7IJUPJFXfhX3wO/uD8yTdy98KInsRD3QtQWLJcnLBY5l3u+TsUc2NwKBgFYQ\n44lsWdhJ28z3zHr4OBtgGB3NBqjwroNfXfmCO6u2Qi3dkuhiH46XoUdQjDANidoh\nlLRlWoAbMkdDr6VnvFa5znfTNYtSjKBY6y5lbYfVb+HeQ1UUw0nur3+0GlfHHZVH\n2aMxFyKvbd6oKlpjRFXXqYSNguDPkER78Nel/yvhAoGBAIdEI/phhh6JasoVXYDR\noXSVCgTgu3urQ1iShC/cZiT7onhayTKoEhoGn+y5qOap6L4onIDkImgeIXpjvOY/\n0PWJDWkT6oaZFk6mgqEJfXgk3E3VOVYyl5vfC/4axvJ0fGEwc+8enWA6SteLlPr4\nh8AcsOxSZ2sbsZ+PQy6D8riJ\n-----END PRIVATE KEY-----\n",
-  "client_email": "testtask@docuread-361900.iam.gserviceaccount.com",
-  "client_id": "106469123587307288247",
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-  "token_uri": "https://oauth2.googleapis.com/token",
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/testtask%40docuread-361900.iam.gserviceaccount.com"
-}
+
