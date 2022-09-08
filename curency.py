@@ -30,9 +30,5 @@ def convert_rubles(usd_sum):
         return f"******\n\n\nConverter Error >>>>:\n\n\n{traceback.format_exc()}"
 
 
-pasi = 95000
-res = convert_rubles(str(pasi))
-
-print(int(res))
 
 
