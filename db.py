@@ -1,5 +1,3 @@
-
-import asyncpg
 from sqlalchemy.ext.asyncio import create_async_engine
 # Settings Module
 from pathlib import Path
