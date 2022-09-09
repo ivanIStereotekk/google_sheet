@@ -1,22 +1,22 @@
-# >>> from sqlalchemy import Column
-# >>> from sqlalchemy import ForeignKey
-# >>> from sqlalchemy import Integer
-# >>> from sqlalchemy import String
-# >>> from sqlalchemy.orm import declarative_base
-# >>> from sqlalchemy.orm import relationship
-#
-# >>> Base = declarative_base()
-#
-# >>> class User(Base):
-# ...     __tablename__ = "user_account"
-# ...
-# ...     id = Column(Integer, primary_key=True)
-# ...     name = Column(String(30))
-# ...     fullname = Column(String)
-# ...
-# ...     addresses = relationship(
-# ...         "Address", back_populates="user", cascade="all, delete-orphan"
-# ...     )
-# ...
-# ...     def __repr__(self):
-# ...         return f"User(id={self.id!r}, name={self.name!r}, fullname={self.fullname!r})"
+from sqlalchemy import Column,Integer,String,Float
+from sqlalchemy.orm import declarative_base
+from db import db_engine
+
+
+Base = declarative_base()
+
+class Item (Base):
+    __tablename__ = "row_in_sheet"
+    id = Column(Integer,primary_key=True)
+    order_num = Column(Integer)
+    price_usd = Column(Integer)
+    rub_price = Column(Float)
+    delivery_data = Column(String)
+    def __repr__(self):
+        return f"Order Num:{self.order_num},Price USD:{self.price_usd},Delivery Date:{self.delivery_data}"
+
+# For making Migrations Run In CLI - python models.py
+if __name__ == "__main__":
+    Base.metadata.create_all(db_engine)
+
+

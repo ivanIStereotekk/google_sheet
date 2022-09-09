@@ -1,0 +1,5 @@
+# docker run -p 5432:5432 --name flask_db -e POSTGRES_PASSWORD=superpassword -e POSTGRES_USER=ewan -d postgres:alpine
+
+docker без указания портов запускает на непонятных...указывать!
+
+Для выполнения миграций выполнить в cli - $python models.py
