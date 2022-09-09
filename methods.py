@@ -12,5 +12,5 @@ all_values = list1.get_all_values()
 
 
 
-for row in all_values:
+for row in all_records:
     print(row)
