@@ -37,12 +37,12 @@ def put_data_to_database():
             )
             try:
                 same_Item = db_session.query(Item).filter(Item.order_num == new_Item.order_num).all()
-                print(same_Item[0],"same")
+                print(f"Item with order_num: {same_Item[0].order_num}  is exist in to database:")
             except:
                 try:
                     db_session.add(new_Item)
                     db_session.commit()
-                    print('commited new item')
+                    print('Commited new Item >>>>>',new_Item.order_num)
                 except:
                     db_session.rollback()
                     db_session.close()
