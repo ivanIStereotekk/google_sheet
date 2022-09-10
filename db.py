@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker,Query
 # Settings Module
 from pathlib import Path
 import os
@@ -19,4 +20,5 @@ DB_PORT = 5432
 db_engine = create_engine(
     f"postgresql+psycopg2://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}")
 
-
+# Session Object for making transactions
+Session = sessionmaker(bind=db_engine)

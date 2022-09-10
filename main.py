@@ -1,17 +1,16 @@
 from flask import Flask
+from models import Item
+from db import Session
+db_session = Session()
 
 app = Flask(__name__)
 
 
 
-
-
 @app.route("/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def main_page():
 
-
-
+    return f"<p>{db_session.query(Item).all()}</p>"
 
 
 
