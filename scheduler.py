@@ -27,6 +27,7 @@ def put_data_to_database():
         from g_parser import get_all_records,list1
         all_record = get_all_records(list1)
         for row in all_record:
+            print(row.order_num,'--- row')
             # Making new item from all records in google sheet:
             new_Item = Item(
                 order_num=row['заказ №'],
@@ -34,6 +35,7 @@ def put_data_to_database():
                 rub_price=round(convert_rubles(row['стоимость,$']),2),
                 delivery_data=str(row['срок поставки']),
             )
+            print(row.order_num,'order')
             try:
                 same_Item = db_session.query(Item).filter(Item.order_num == new_Item.order_num).all()
                 for item in same_Item:
