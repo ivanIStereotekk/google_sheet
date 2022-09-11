@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from models import Item
 from db import Session
 db_session = Session()
@@ -9,8 +9,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def main_page():
+    data = db_session.query(Item).all()
+    return render_template('index.html',data=data)
 
-    return f"<p>{db_session.query(Item).all()}</p>"
 
 
 

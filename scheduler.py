@@ -17,6 +17,12 @@ PARSING_PERIOD = os.getenv("PARSING_PERIOD")
 
 db_session = Session()
 
+from sqlalchemy import update
+
+#update_order = (update(Item).where(Item.order_num == 5).values(name='user #5'))
+#update_usd = (update(Item).where(Item.id == 5).values(name='user #5'))
+#update_rub = (update(Item).where(Item.id == 5).values(name='user #5'))
+#update_del = (update(Item).where(Item.id == 5).values(name='user #5'))
 
 def put_data_to_database():
     """
@@ -37,7 +43,14 @@ def put_data_to_database():
             )
             try:
                 same_Item = db_session.query(Item).filter(Item.order_num == new_Item.order_num).all()
-                print(f"Item with order_num: {same_Item[0].order_num}  is exist in to database:")
+                for item in same_Item:
+                    item.order_num=row['заказ №'],
+                    item.price_usd=row['стоимость,$'],
+                    item.rub_price=round(convert_rubles(row['стоимость,$']),2),
+                    item.delivery_data=str(row['срок поставки'])
+                    print("re-recorded")
+                db_session.commit()
+                print(f"Item with order_num: {same_Item[0].order_num} updated:")
             except:
                 try:
                     db_session.add(new_Item)

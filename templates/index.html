@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for row in data%}
+<div>
+    <ul>
+        <li class="full-item"> <a>ID: {{ row.id }}    </a> <a> NUM: {{row.order_num  }}   </a> <a>RUB:  {{ row.rub_price }}</a><a> USD:{{row.price_usd}}</a><a class="delivery">DELIVERY:{{row.delivery_data}}</a></li>
+</ul>
+    <br>
+</div>
+{% endfor %}
+</body>
+</html>
