@@ -17,13 +17,6 @@ PARSING_PERIOD = os.getenv("PARSING_PERIOD")
 
 db_session = Session()
 
-from sqlalchemy import update
-
-#update_order = (update(Item).where(Item.order_num == 5).values(name='user #5'))
-#update_usd = (update(Item).where(Item.id == 5).values(name='user #5'))
-#update_rub = (update(Item).where(Item.id == 5).values(name='user #5'))
-#update_del = (update(Item).where(Item.id == 5).values(name='user #5'))
-
 def put_data_to_database():
     """
     Actually this is the periodic task, or function.
