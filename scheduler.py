@@ -29,7 +29,13 @@ def task_1():
     schedule.every().wednesday.at("13:15").do(job)
     schedule.every().minute.at(":17").do(job)
     """
-    put_data_to_database()
+
+def task_2():
+    """
+    Renew database
+    :return:
+    """
+    renew_database()
 
 
 if __name__ == "__main__":
@@ -37,7 +43,7 @@ if __name__ == "__main__":
     PARSING_PERIOD - seconds (.env )
     RUN COMMAND: - $python scheduler.py
     """
-    schedule.every(int(PARSING_PERIOD)).seconds.do(task_1)
+    schedule.every(int(PARSING_PERIOD)).seconds.do(task_2)
     while True:
         schedule.run_pending()
 

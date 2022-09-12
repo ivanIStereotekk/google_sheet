@@ -19,37 +19,38 @@ PARSING_PERIOD = os.getenv("PARSING_PERIOD")
 db_session = Session()
 
 
-def put_data_to_database():
-    from g_parser import get_all_records, list1
+
+
+def renew_database():
     """
     Actually this is the periodic task, or function.
     This function interacts with google sheet > takes data > put's data to database:
     :return:
     """
+    from g_parser import get_all_records, list1
+    container = []
     try:
         all_record = get_all_records(list1)
-        container = []
         for row in all_record:
-            # Making new item from all records in google sheet:
             new_Item = Item(
-                id=row['№'],
+                #id=row['№'],
                 order_num=row['заказ №'],
                 price_usd=row['стоимость,$'],
                 rub_price=round(convert_rubles(row['стоимость,$']),2),
                 delivery_data=str(row['срок поставки']),
             )
-            # Query - the item which are the same as new item - returns None if item doesn't exist:
-            if db_session.query(Item).filter_by(order_num=str(new_Item.order_num)).one_or_none() is None:
-                container.append(new_Item)
-        # end of procedures:
+            container.append(new_Item)
+        try:
+            db_session.execute('delete from row_in_sheet')
+            db_session.commit()
+        except:
+            db_session.rollback()
         for i in container:
             db_session.add(i)
-            try:
-                db_session.commit()
-            except:
-                db_session.rollback()
-        db_session.commit()
-        db_session.close()
+            print(i)
+            db_session.commit()
+            db_session.close()
         all_record = get_all_records(list1)
-    except (Exception,KeyboardInterrupt):
+        print('success')
+    except (Exception, KeyboardInterrupt):
         return f"******\nPeriodic Task Interupted By User >>>>:\n{traceback.format_exc()}"
