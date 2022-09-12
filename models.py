@@ -8,7 +8,8 @@ Base = declarative_base()
 
 class Item (Base):
     __tablename__ = "row_in_sheet"
-    id = Column(Integer,primary_key=True)
+    pk = Column(Integer,primary_key=True)
+    num = Column(Integer)
     order_num = Column(Integer,unique=True)
     price_usd = Column(Integer)
     rub_price = Column(Float)
