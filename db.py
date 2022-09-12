@@ -18,7 +18,7 @@ DB_PORT = 5432
 
 # Connecting DataBase
 db_engine = create_engine(
-    f"postgresql+psycopg2://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}")
+    f"postgresql+psycopg2://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}",echo=True)
 
 # Session Object for making transactions
 Session = sessionmaker(bind=db_engine)

@@ -1,10 +1,5 @@
 import schedule
-from curency import convert_rubles
-import traceback
-# DB Issues
-from models import Item
-from db import Session
-from sqlalchemy.orm import Query as query
+# .env issues
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -15,54 +10,34 @@ load_dotenv(dotenv_path=env_path)
 # PARAMETERS FROM .env
 PARSING_PERIOD = os.getenv("PARSING_PERIOD")
 
+# TASKS
+from methods_db import *
 
-db_session = Session()
 
-
-def put_data_to_database():
-    from g_parser import get_all_records, list1
+def task_1():
     """
-    Actually this is the periodic task, or function.
-    This function interacts with google sheet > takes data > put's data to database:
+    Task imported from module methods_db.py
+    gets data from google table then puts to database
     :return:
+    SETINGS:
+    schedule.every(10).seconds.do(job)
+    schedule.every(10).minutes.do(job)
+    schedule.every().hour.do(job)
+    schedule.every().day.at("10:30").do(job)
+    schedule.every(5).to(10).minutes.do(job)
+    schedule.every().monday.do(job)
+    schedule.every().wednesday.at("13:15").do(job)
+    schedule.every().minute.at(":17").do(job)
     """
-    try:
-        all_record = get_all_records(list1)
-        for row in all_record:
-            # Making new item from all records in google sheet:
-            new_Item = Item(
-                num=row['№'],
-                order_num=row['заказ №'],
-                price_usd=row['стоимость,$'],
-                rub_price=round(convert_rubles(row['стоимость,$']),2),
-                delivery_data=str(row['срок поставки']),
-            )
-            try:
-                same_Item = db_session.query(Item).filter_by(order_num=str(new_Item.order_num)).one_or_none()
-                print(same_Item,'same or none')
-                if same_Item == None:
-                    try:
-                        db_session.add(new_Item)
-                        print('added - new Item')
-                    except:
-                        db_session.rollback()
-            except:
-                db_session.rollback()
-                db_session.close()
-        #renew
-        db_session.commit()
-        db_session.close()
-        print("<<< DISCONNECTED DB:")
-        all_record = get_all_records(list1)
-    except (Exception,KeyboardInterrupt):
-        return f"******\nPeriodic Task Interupted By User >>>>:\n{traceback.format_exc()}"
+    put_data_to_database()
+
 
 if __name__ == "__main__":
     """
     PARSING_PERIOD - seconds (.env )
     RUN COMMAND: - $python scheduler.py
     """
-    schedule.every(int(PARSING_PERIOD)).seconds.do(put_data_to_database)
+    schedule.every(int(PARSING_PERIOD)).seconds.do(task_1)
     while True:
         schedule.run_pending()
 
