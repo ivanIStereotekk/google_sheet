@@ -1,3 +1,6 @@
+import datetime
+import time
+
 import gspread
 
 # GOOGLE API
@@ -34,3 +37,28 @@ def get_all_values(data_sheet):
     return _values
 
 
+from datetime import datetime as tm
+
+now = tm.now()
+
+def make_color():
+    for i in all_records:
+        delivery = tm.strptime(str(i['срок поставки']), "%d.%m.%Y")
+        delta  = delivery - now
+        match delta.days:
+                case 5:#BOLD
+                    list1.format(f"D{i['№'] + 1}", {'textFormat': {'bold': True}})
+                case 3:#GREEN
+                    list1.format(f"D{i['№'] + 1}", {"backgroundColor": {"red": 0.0, "green": 1.0, "blue": 0.0}})
+                case 1:#BLUE
+                    list1.format(f"D{i['№'] + 1}", {"backgroundColor": {"red": 0.0,"green":0.0,"blue":1.0}})
+                case 0:#RED
+                    list1.format(f"D{i['№'] + 1}", {"backgroundColor": {"red": 1.0, "green": 0.0, "blue": 0.0}})
+
+
+
+
+
+
+
+make_color()

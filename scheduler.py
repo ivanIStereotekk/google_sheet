@@ -12,7 +12,7 @@ PARSING_PERIOD = os.getenv("PARSING_PERIOD")
 
 # TASKS
 from methods_db import *
-
+from g_parser import make_color
 
 def task_1():
     """
@@ -29,6 +29,7 @@ def task_1():
     schedule.every().wednesday.at("13:15").do(job)
     schedule.every().minute.at(":17").do(job)
     """
+    make_color()
 
 def task_2():
     """
@@ -44,6 +45,7 @@ if __name__ == "__main__":
     RUN COMMAND: - $python scheduler.py
     """
     schedule.every(int(PARSING_PERIOD)).seconds.do(task_2)
+    schedule.every().day.at("10:30").do(task_1)
     while True:
         schedule.run_pending()
 
