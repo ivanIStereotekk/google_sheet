@@ -19,8 +19,6 @@ PARSING_PERIOD = os.getenv("PARSING_PERIOD")
 db_session = Session()
 
 
-
-
 def renew_database():
     """
     Actually this is the periodic task, or function.
@@ -47,7 +45,6 @@ def renew_database():
             db_session.rollback()
         for i in container:
             db_session.add(i)
-            print(i)
             db_session.commit()
             db_session.close()
         all_record = get_all_records(list1)
